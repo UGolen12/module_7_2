@@ -1,18 +1,19 @@
 from pprint import pprint
 
+
 def custom_write(file_name, strings):
     string_positions = {}
     n = 0
+    file = open(file_name, 'w', encoding='utf-8')
 
     for string in strings:
         n += 1
-        file = open(file_name, 'a', encoding = 'utf-8')
         key = (n, file.tell())
         file.write(f'{string}\n')
-        file.close()
         string_positions[key] = string
 
     return string_positions
+    file.close()
 
 
 info = [
